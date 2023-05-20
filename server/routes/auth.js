@@ -3,7 +3,9 @@ const { body, validationResult } = require('express-validator');
 const express = require('express');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
+
 // * Custom Packages
+const fetchUser = require('../middleware/fetchUser');
 // ? User Model
 const User = require('../DB/models/User');
 // ? Importing JsonWebToken From config
@@ -11,7 +13,7 @@ const JWT_SECRET = process.env.JWT_SECRET || "mysecretkey";
 
 const auth = express.Router();
 
-// ? Creating User
+// ? ROUTE 1 -> Creating User
 auth.post('/signup',
     // ? Validations    
     [
@@ -56,7 +58,7 @@ auth.post('/signup',
         }
     }
 )
-// ? Authenticating User
+// ? ROUTE 2 -> Authenticating User
 auth.post('/login',
     // ? Validations    
     [
@@ -78,7 +80,7 @@ auth.post('/login',
                 if (comparePassword) {
                     // ? If Password Is Matching
                     const payload = { user: { user: user.id } }
-                    const authToken = jwt.sign(payload, JWT_SECRET)
+                    const authToken = jwt.sign(payload, JWT_SECRET); // i think i should cgange it to verify them store the token to db and compare here
                     res.status(200).json({ "msg": "user Found", "authToken": authToken });
                 } else {
                     // ? If Password Is Not Matching
@@ -89,6 +91,21 @@ auth.post('/login',
                 // ? If User Does Not Exists
                 return res.status(400).json({ "status": "error", "msg": "Plese Login with correct credentials!" })
             }
+        } catch (error) {
+            console.log({ "Error": error });
+            res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong", })
+        }
+    }
+)
+
+// ? ROUTE 3 -> Getting Legit User Data
+auth.post('/getuser',
+    fetchUser,
+    async (req, res) => {
+        try {
+            const userID = req.user.user;
+            const legitUser = await User.findById(userID).select('-password');
+            res.status(200).json({"User Found " : legitUser});
         } catch (error) {
             console.log({ "Error": error });
             res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong", })
