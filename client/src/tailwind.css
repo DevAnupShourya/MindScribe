@@ -2,4 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-/* npx tailwindcss -i ./src/tailwind.css -o ./src/index.css --watch */
+/* npx tailwindcss -i ./src/tailwind.css -o ./src/App.css --watch */
