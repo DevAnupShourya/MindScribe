@@ -8,7 +8,7 @@ export default function Navbar() {
     navigate('/login');
   }
   return (
-    <div className="navbar text-text px-10 sticky top-0 left-0 bg-primary bg-opacity-40 backdrop-filter backdrop-blur-sm z-10">
+    <div className="navbar text-text px-10 sticky top-0 left-0 bg-secondary bg-opacity-40 backdrop-filter backdrop-blur-sm z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost hover:bg-gray-200 hover:text-black btn-circle">
@@ -19,8 +19,7 @@ export default function Navbar() {
             <li><Link to={'/about'}>About</Link></li>
             <li><Link to={'/contact'}>Contact</Link></li>
             <li><Link to={'/signup'}>Signup</Link></li>
-            <li><Link to={'/add'}>Add Note</Link></li>
-            <li><Link to={'/notes'}>All Notes</Link></li>
+            <li><Link to={'/login'}>Login</Link></li>
             <li><Link to={'/admin'}>Admin</Link></li>
           </ul>
         </div>

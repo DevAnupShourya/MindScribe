@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <div id="hero" className="bg-black grid place-items-center w-full h-[90vh]">
+    <div id="hero" className="grid place-items-center w-full h-[90vh]">
       <section className="mb-8 px-10 flex flex-col justify-between gap-6 sm:gap-10 md:mb-16 md:gap-16 lg:flex-row">
         <div className="flex flex-col justify-center sm:text-center lg:py-12 lg:text-left xl:w-5/12">
           <p className="mb-4 font-semibold text-indigo-500 md:mb-6 md:text-lg xl:text-xl">Captivate Your Thoughts, Ignite Your Imagination!</p>

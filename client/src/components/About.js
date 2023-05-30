@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function About() {
   return (
-    <div className="text-placeholder bg-black py-6 sm:py-8 lg:py-12">
+    <div className="text-placeholder bg-primary py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-md px-4 md:px-8">
         <h1 className="mb-4 text-center text-2xl font-bold text-accent sm:text-3xl md:mb-6">Our competitive advantage</h1>
         <p className="mb-6 text-gray-500 sm:text-lg md:mb-8">

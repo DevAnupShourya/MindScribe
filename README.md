@@ -9,7 +9,6 @@ git push -u origin master
 MindScribe is a revolutionary note-taking platform that unlocks the power of your thoughts. Seamlessly capture your ideas, insights, and inspirations in a beautifully designed digital space. With its intelligent organization features, MindScribe helps you make connections between your notes and discover new perspectives. Experience the freedom to create, explore, and grow with MindScribe.
 
 ### For testing Purpose
-
 ```json
 {
   "name": "test",
@@ -24,13 +23,12 @@ MindScribe is a revolutionary note-taking platform that unlocks the power of you
   "auth-token" :"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2NDc0OGQzNzNhOGZiYTdjOGIxOTZlYmQifSwiaWF0IjoxNjg1MzU5OTI3fQ.OUWvzmrOYZkRrPVCXLkO22XCw-WF8KRhxJnuK4V1jXw"
 }
 ```
-
+### For TailwindCSS Compilation
 ```css
 npx tailwindcss -i ./src/tailwind.css -o ./src/App.css --watch
 ```
 
 ### Color Palette
-
 - primary : text-[#9d9d9d]
 - accent - indigo-400
 - button - bg-gradient-to-r from-purple-800 to-green-500
@@ -38,7 +36,7 @@ npx tailwindcss -i ./src/tailwind.css -o ./src/App.css --watch
 ## Folder Structure Should Be :
 
 ```bash
-project-root/
+MindScribe/
   ├── client/                  # Front-end code
   │   ├── public/              # Public assets (index.html, favicon, etc.)
   │   ├── src/                 # Source code

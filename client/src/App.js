@@ -14,10 +14,9 @@ import Footer from './components/partials/Footer';
 import NoteState from './context/notes/NoteState';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import NoteForm from './components/NoteForm';
-import Notes from './components/Notes';
 import Admin from './components/Admin';
 import Alert from './components/partials/Alert';
+import NotFound from './components/partials/NotFound';
 
 export default function App() {
   const [alert, setAlert] = useState({ type: null, msg: null });
@@ -34,7 +33,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <NoteState>
-        <div className="bg-black">
+        <div className="bg-primary">
           <Navbar />
           <Alert type={alert.type} msg={alert.msg} />
           <Routes >
@@ -43,9 +42,8 @@ export default function App() {
             <Route exact path="/contact" element={<Contact showAlert={showAlert} />} />
             <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
             <Route exact path="/login" element={<Login showAlert={showAlert} />} />
-            <Route exact path="/form" element={<NoteForm />} />
-            <Route exact path="/notes" Component={Notes} />
             <Route exact path="/admin" element={<Admin showAlert={showAlert} />} />
+            <Route path="*" element={<NotFound/>} />
           </Routes >
           <Footer />
         </div>

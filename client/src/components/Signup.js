@@ -33,7 +33,7 @@ export default function Signup(props) {
     }
 
     return (
-        <div className="container mx-auto py-10 text-black">
+        <div className="container mx-auto py-10 text-text">
             <h1 className="text-2xl font-bold mb-6 text-center">Registration Form</h1>
             <form onSubmit={handleOnSubmit} className="w-full max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
                 <div className="mb-4">

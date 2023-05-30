@@ -15,6 +15,7 @@ export default function Notes(props) {
     }
     else {
       navigate('/login');
+      props.showAlert('warning', 'Login To Access It!!')
     }
     // eslint-disable-next-line
   })
