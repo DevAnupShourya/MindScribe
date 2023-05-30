@@ -2,6 +2,8 @@ const express = require('express');
 const server = express();
 server.use(express.json());
 
+const cors = require('cors');
+server.use(cors())
 const serverAddress = '127.0.0.1'; // `${process.env.DB_HOST}:${process.env.PORT}` || '127.0.0.1';
 require('./DB/database');
 

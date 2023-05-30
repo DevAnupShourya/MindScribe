@@ -1,11 +1,42 @@
-[] Github Push Today : 
+[] Github Push Today :
+
 ```bash
 git push -u origin master
 ```
+
 # MindScribe
+
 MindScribe is a revolutionary note-taking platform that unlocks the power of your thoughts. Seamlessly capture your ideas, insights, and inspirations in a beautifully designed digital space. With its intelligent organization features, MindScribe helps you make connections between your notes and discover new perspectives. Experience the freedom to create, explore, and grow with MindScribe.
 
+### For testing Purpose
+
+```json
+{
+  "name": "test",
+  "email": "test@test.com",
+  "password": "test123",
+  "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2NDcwNWE4ZGJkNWQ2ZGUwMjRiYmVmZDgifSwiaWF0IjoxNjg1MDg0ODEzfQ.291ejGI8hYnmXVeeRjlnDrAO61FwxLuVYodso9Xws1c"
+}
+{
+  "name": "admin",
+  "email": "admin@mindscribe.com",
+  "password": "adminofmindscribe",
+  "auth-token" :"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2NDc0OGQzNzNhOGZiYTdjOGIxOTZlYmQifSwiaWF0IjoxNjg1MzU5OTI3fQ.OUWvzmrOYZkRrPVCXLkO22XCw-WF8KRhxJnuK4V1jXw"
+}
+```
+
+```css
+npx tailwindcss -i ./src/tailwind.css -o ./src/App.css --watch
+```
+
+### Color Palette
+
+- primary : text-[#9d9d9d]
+- accent - indigo-400
+- button - bg-gradient-to-r from-purple-800 to-green-500
+
 ## Folder Structure Should Be :
+
 ```bash
 project-root/
   ├── client/                  # Front-end code
@@ -40,6 +71,7 @@ project-root/
 ```
 
 ## Feature To Implement
+
 - 1. Customizable Themes: Allow users to personalize the appearance of the app by offering a variety of themes or customization options. This can include different color schemes, font styles, and layout options.
 - 2. Advanced Note Organization: Implement advanced organization features such as tags, categories, folders, or labels to help users better categorize and search for their notes. Additionally, provide options for sorting, filtering, and prioritizing notes based on various criteria.
 - 3. Collaboration and Sharing: Enable users to collaborate and share their notes with others. This can include features like real-time collaboration, allowing multiple users to edit the same note simultaneously, and the ability to share notes via email or generate shareable links.

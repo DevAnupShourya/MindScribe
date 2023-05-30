@@ -1,0 +1,114 @@
+.singup {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: x-large;
+  margin-top: 1.5em;
+}
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 35px;
+  border-radius: 15px;
+  background: rgba(24, 20, 20, 0.987);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+}
+
+.inputBox,
+.inputBox1 {
+  position: relative;
+}
+
+.inputBox input, .inputBox textarea,
+.inputBox1 input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+  color: black;
+  font-size: 1em;
+  background: white;
+  border-left: 2px solid #000;
+  border-bottom: 2px solid #000;
+  transition: 0.1s;
+  border-bottom-left-radius: 8px;
+}
+
+.inputBox span,
+.inputBox1 span {
+  margin-top: 5px;
+  position: absolute;
+  left: 0;
+  transform: translateY(-4px);
+  margin-left: 10px;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 12px;
+  color: black;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 3px;
+  border-radius: 8px;
+}
+
+.inputBox input:valid ~ span, 
+.inputBox textarea:valid ~ span,
+.inputBox textarea:focus ~ span,
+.inputBox input:focus ~ span {
+  transform: translateX(0px) translateY(-22px);
+  font-size: 0.6em;
+  padding: 5px 10px;
+  background: rgb(129, 140, 248);
+  letter-spacing: 0.2em;
+  color: #fff;
+  border: 2px;
+}
+
+.inputBox1 input:valid ~ span,
+.inputBox1 input:focus ~ span {
+  transform: translateX(0px) translateY(-22px);
+  font-size: 0.6em;
+  padding: 5px 10px;
+  background: rgb(129, 140, 248);
+  letter-spacing: 0.2em;
+  color: #fff;
+  border: 2px;
+}
+
+.inputBox input:valid,
+.inputBox input:focus,
+.inputBox textarea:valid,
+.inputBox textarea:focus,
+.inputBox1 input:valid,
+.inputBox1 input:focus {
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+}
+
+.enter {
+  height: 45px;
+  width: 100px;
+  border-radius: 5px;
+  border: 2px solid whitesmoke;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.5s;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 3em;
+}
+
+.enter:hover {
+  background-color: whitesmoke;
+  color: black;
+}
+
+button:disabled{
+  background-color: gray;
+  color: whitesmoke;
+  cursor: no-drop;
+}

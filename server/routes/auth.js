@@ -17,7 +17,7 @@ const auth = express.Router();
 auth.post('/signup',
     // ? Validations    
     [
-        body("name", "Enter Valid Name").isLength({ min: 2, max: 10 }),
+        body("name", "Enter Valid Name").isLength({ min: 2, max: 30 }),
         body("email", "Enter Valid Email").isEmail(),
         body("password", "Password Must be 5 Charachters").isLength({ min: 5 })
     ],
@@ -50,7 +50,7 @@ auth.post('/signup',
                 const authToken = jwt.sign(payload, JWT_SECRET)
 
                 // ? Sending Success respons to user
-                res.json({ "status": "success", "msg": "User Created Succesfully!!", "Token": authToken })
+                res.json({ "status": "success", "msg": "User Created Succesfully!!", "authToken": authToken })
             }
         } catch (error) {
             console.log({ "Error": error });

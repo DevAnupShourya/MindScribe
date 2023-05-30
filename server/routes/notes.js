@@ -35,9 +35,9 @@ notes.post('/',
         }
         else {
             try {
-                const { title, description, tag } = req.body;
+                const { title, description, tags } = req.body;
                 const note = new Note({
-                    title, description, tag, user: req.user.user
+                    title, description, tags, user: req.user.user
                 })
                 const savedNote = await note.save();
                 res.status(202).json({ "Note Saved": savedNote });
@@ -57,10 +57,12 @@ notes.put('/:id',
             const { title, description, tags } = req.body;
             const updatedNote = {};
 
+            console.log("**************** ", title, description, tags ," ****************");
+
             // ? Geting Required Fields if Avaiable
             if (title) { updatedNote.title = title };
             if (description) { updatedNote.description = description };
-            if (tags) { updatedNote.description = tags };
+            if (tags) { updatedNote.tags = tags };
 
             // ? Find The Note To Be Updated And Then Update It
             let foundNoteById = await Note.findById(req.params.id);

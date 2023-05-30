@@ -4,38 +4,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Light Mode
-        primary: {
-          DEFAULT: '#4A5568',    // Grayish-blue
-          hover: '#718096',      // Gray (hover)
-        },
-        secondary: {
-          DEFAULT: '#CBD5E0',    // Light gray
-          hover: '#E2E8F0',      // Off-white (hover)
-        },
-        accent: {
-          DEFAULT: '#F7FAFC',    // Off-white
-          hover: '#EDF2F7',      // Off-white (hover)
-        },
         // Dark Mode
-        dark_primary: {
-          DEFAULT: '#1A202C',    // Dark gray
-          hover: '#2D3748',      // Dark gray (hover)
+        primary:'#26212e',
+        secondary: '#1e1d22',
+        accent: {
+          DEFAULT: '#4341e8', // Links
+          hover: '#31307e',      
         },
-        dark_secondary: {
-          DEFAULT: '#F7FAFC',    // Off-white
-          hover: '#EDF2F7',      // Off-white (hover)
-        },
-        dark_accent: {
-          DEFAULT: '#718096',    // Gray
-          hover: '#4A5568',      // Gray (hover)
-        },
-        text: '#333333',         // Dark gray text color
-        placeholder: '#A5A5A5',  // Light gray placeholder color
+        text: '#fdfcff', // Heading
+        placeholder: '#78797d',  // Noral Text
         error: '#E53E3E',        // Red error color
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
-
