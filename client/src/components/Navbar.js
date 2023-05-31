@@ -20,18 +20,18 @@ export default function Navbar() {
             <li><Link to={'/contact'}>Contact</Link></li>
             <li><Link to={'/signup'}>Signup</Link></li>
             <li><Link to={'/login'}>Login</Link></li>
-            <li><Link to={'/admin'}>Admin</Link></li>
+            <li><Link to={'/dashboard'}>Dashboard</Link></li>
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-        <Link to={'/'} className="btn btn-ghost normal-case text-xl">MindScribe </Link>
+        <Link to={'/'} className="btn btn-ghost normal-case text-xl">MindScribe</Link>
       </div>
       <div className="navbar-end">
-        {!localStorage.getItem('MindScribeAuthToken') ?
-          <Link to={'/signup'} className='bg-gradient-to-r from-purple-800 to-green-500 px-5 py-2 rounded-md hover:bg-gradient-to-l hover:from-pink-500 hover:to-green-500 transition-all  duration-1000 ease-in-out font-bold'>Sign Up</Link>
-          :
+        {localStorage.getItem('MindScribeAuthToken') ?
           <button onClick={handleLogout} className='bg-gradient-to-r from-purple-800 to-green-500 px-5 py-2 rounded-md hover:bg-gradient-to-l hover:from-pink-500 hover:to-green-500 transition-all  duration-1000 ease-in-out font-bold'>Logout</button>
+          :
+          <Link to={'/signup'} className='btn'>Sign Up</Link>
         }
       </div>
     </div>

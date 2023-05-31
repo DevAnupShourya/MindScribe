@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+// ? Note Adding Form Component
 import NoteForm from './NoteForm';
+// ? Notes Displaying Component
 import Notes from './Notes';
 
-export default function Admin(props) {
+export default function Dashboard(props) {
   return (
     <>
         <NoteForm showAlert={props.showAlert} />

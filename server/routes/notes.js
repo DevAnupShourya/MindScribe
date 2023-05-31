@@ -57,8 +57,6 @@ notes.put('/:id',
             const { title, description, tags } = req.body;
             const updatedNote = {};
 
-            console.log("**************** ", title, description, tags ," ****************");
-
             // ? Geting Required Fields if Avaiable
             if (title) { updatedNote.title = title };
             if (description) { updatedNote.description = description };

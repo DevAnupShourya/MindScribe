@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react'
-import '../notestyle.css';
-import noteContext from '../context/notes/NoteContext';
+import React, { useContext, useState } from 'react';
+// ? Custom Note Context API
+import {NoteContext} from '../context/NoteContextAPI';
+// ? Custom Style
+import '../styles/notestyle.css';
 
 export default function NoteForm(props) {
-  const context = useContext(noteContext);
-  const { addNote } = context;
+  const { addNote } = useContext(NoteContext);
 
   const [inputNote, setnote] = useState({ title: '', description: '', tags: '' });
 
@@ -16,7 +17,6 @@ export default function NoteForm(props) {
   }
 
   const handleInputChange = (e) => {
-    // setnote({ ...inputNote, [e.target.name]: [e.target.value] });
     setnote({ ...inputNote, [e.target.name]: e.target.value });
   }
   return (
@@ -27,18 +27,15 @@ export default function NoteForm(props) {
           <input type="text" minLength={5} name='title' value={inputNote.title} onChange={handleInputChange} required="required" />
           <span className="user">Title</span>
         </div>
-
         <div className="inputBox w-5/6">
           <input type="text" minLength={2} name='tags' value={inputNote.tags} onChange={handleInputChange} required="required" />
           <span>Tags</span>
         </div>
-
         <div className="inputBox w-5/6">
           <textarea type="text" minLength={8} name='description' value={inputNote.description} required="required" onChange={handleInputChange} rows={3}>
           </textarea>
-          <span> Description</span>
+          <span>Description</span>
         </div>
-
         <button disabled={inputNote.title.length < 5 ||  inputNote.description.length < 8}  className="enter" onClick={handleSaveBtn}>Save Note</button>
       </div>
     </div>

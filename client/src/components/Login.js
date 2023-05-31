@@ -1,40 +1,35 @@
-import React, { useState} from 'react';
-import { Link, useNavigate  } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+// ? Helper Functions
+import { login } from '../utils/authFunctions';
 
 export default function Login(props) {
-    // ? Variables 
-    const url = "http://127.0.0.1:5000";
-    let navigate  = useNavigate();
-
-    const [credentials, setCredentials] = useState({ email: '', password: '' })
+    // ? Navigation 
+    let navigate = useNavigate();
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        // ? API Call
-        const request = await fetch(`${url}/api/auth/login`, {
-            method: "POST",
-            headers: {
-                'Content-Type': "application/json"
-            },
-            body: JSON.stringify({ email: credentials.email, password: credentials.password })
-        })
-        const response = await request.json();
-        if(response.msg === "user Found"){
-            localStorage.setItem('MindScribeAuthToken' , response.authToken);
-            props.showAlert('success' , "Logged In Succesfully!")
-            navigate('/admin');
+        const loginData = await login(credentials.email, credentials.password);
+
+        if ((loginData.msg === "user Found")) {
+            localStorage.setItem(`MindScribeAuthToken`, loginData.authToken);
+            props.showAlert('success', "Logged In Succesfully!")
+            navigate('/');
         }
-        else{
-            props.showAlert('error' , "Invalid Credentials!!");
+        else {
+            props.showAlert('error', "Invalid Credentials!!");
         }
     }
 
+    // ? State for all Inputs
+    const [credentials, setCredentials] = useState({ email: null, password: null })
     const handleInpueChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     }
     return (
         <div className="w-full h-[80vh] grid place-items-center ">
-            <form onSubmit={handleOnSubmit} className="bg-white lg:w-1/2 sm:w-3/4 rounded-xl shadow-xl overflow-hidden p-6 space-y-10">
+            <form onSubmit={handleOnSubmit} className="lg:w-1/2 sm:w-3/4 rounded-xl shadow-xl overflow-hidden p-6 space-y-10">
                 <h2 className="text-4xl font-bold text-center text-indigo-600">Login</h2>
                 <div className="f-outline px-2 relative border rounded-lg focus-within:border-indigo-500">
                     <label htmlFor="email">

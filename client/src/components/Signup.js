@@ -1,33 +1,32 @@
-import React,{useState} from 'react';
-import { Link , useNavigate} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+// ? Helper Functions
+import { signup } from '../utils/authFunctions';
 
 export default function Signup(props) {
-    const url = "http://127.0.0.1:5000";
-    let navigate  = useNavigate();
-
-    const [userData, setUserData] = useState({name: '' , email: '', password: '', confirmPassword : ''})
-
+    let navigate = useNavigate();
+    const [userData, setUserData] = useState({ name: '', email: '', password: '', confirmPassword: '' })
+    
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        // ? API Call
-        const {name, email, password} = userData;
-        const request = await fetch(`${url}/api/auth/signup/`, {
-            method: "POST",
-            headers: {
-                'Content-Type': "application/json"
-            },
-            body: JSON.stringify({name, email, password})
-        })
-        const response = await request.json();
-        if(response.status === "success"){
-            localStorage.setItem('MindScribeAuthToken' , response.authToken);
-            navigate('/admin');
-            props.showAlert('success' , "Account Created Succesfully.")
-        }
-        else{
-            props.showAlert('error' , "Invalid Credentials!")
+        if (userData.password === userData.confirmPassword) {
+            // ? API Call
+            const signupData = await signup(userData);
+            
+            if (signupData.status === "success") {
+                localStorage.setItem(`MindScribeAuthToken`, signupData.authToken);
+                navigate('/dashboard');
+                props.showAlert('success', "Account Created Succesfully.")
+            }
+            else {
+                props.showAlert('error', "Invalid Credentials.. Try Again!")
+            }
+        } else {
+            props.showAlert('error', "Password Did Not Match.. Try Again!")
         }
     }
+    // ? Handling Onchange in Inputs
     const handleInputChange = (e) => {
         setUserData({ ...userData, [e.target.name]: e.target.value });
     }
@@ -38,7 +37,7 @@ export default function Signup(props) {
             <form onSubmit={handleOnSubmit} className="w-full max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">Name</label>
-                    <input autoComplete='name' onChange={handleInputChange}required={'required'} minLength={2} maxLength={30} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" type="text" id="name" name="name" placeholder="John Doe" />
+                    <input autoComplete='name' onChange={handleInputChange} required={'required'} minLength={2} maxLength={30} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" type="text" id="name" name="name" placeholder="John Doe" />
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">Email</label>
