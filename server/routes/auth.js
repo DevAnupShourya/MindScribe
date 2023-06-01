@@ -8,8 +8,9 @@ var jwt = require('jsonwebtoken');
 const fetchUser = require('../middleware/fetchUser');
 // ? User Model
 const User = require('../DB/models/User');
-// ? Importing JsonWebToken From config
-const JWT_SECRET = process.env.JWT_SECRET || "mysecretkey";
+
+// ? Importing JWT TOken From config
+const JWT_SECRET = process.env.JWT_SECRET ;
 
 const auth = express.Router();
 
@@ -33,7 +34,7 @@ auth.post('/signup',
 
             if (user) {
                 // ? If User Already Exists In DB
-                return res.status(400).json({ "error": "email already exists!" })
+                return res.status(400).json({ "status": "error", "msg": "email already exists!" })
             }
             else {
                 // ? If User Do Not Exists In DB
@@ -53,7 +54,7 @@ auth.post('/signup',
                 res.json({ "status": "success", "msg": "User Created Succesfully!!", "authToken": authToken })
             }
         } catch (error) {
-            console.log({ "Error": error });
+            // console.log({ "Error": error });
             res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong", })
         }
     }
@@ -81,7 +82,7 @@ auth.post('/login',
                     // ? If Password Is Matching
                     const payload = { user: { user: user.id } }
                     const authToken = jwt.sign(payload, JWT_SECRET); // i think i should cgange it to verify them store the token to db and compare here
-                    res.status(200).json({ "msg": "user Found", "authToken": authToken });
+                    res.status(200).json({ "status": "success", "msg": "user Found", "authToken": authToken });
                 } else {
                     // ? If Password Is Not Matching
                     return res.status(400).json({ "status": "error", "msg": "Plese Login with correct credentials!" })
@@ -92,7 +93,7 @@ auth.post('/login',
                 return res.status(400).json({ "status": "error", "msg": "Plese Login with correct credentials!" })
             }
         } catch (error) {
-            console.log({ "Error": error });
+            // console.log({ "Error": error });
             res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong", })
         }
     }
@@ -105,9 +106,9 @@ auth.post('/getuser',
         try {
             const userID = req.user.user;
             const legitUser = await User.findById(userID).select('-password');
-            res.status(200).json({"User Found " : legitUser});
+            res.status(200).json({ "status": "success", "User Found ": legitUser });
         } catch (error) {
-            console.log({ "Error": error });
+            // console.log({ "Error": error });
             res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong", })
         }
     }

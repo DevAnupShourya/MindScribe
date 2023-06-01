@@ -15,7 +15,7 @@ notes.get('/',
             const notes = await Note.find({ user: req.user.user });
             res.status(201).json(notes);
         } catch (error) {
-            console.log({ "Error": error });
+            // console.log({ "Error": error });
             res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong", })
         }
     }
@@ -40,9 +40,9 @@ notes.post('/',
                     title, description, tags, user: req.user.user
                 })
                 const savedNote = await note.save();
-                res.status(202).json({ "Note Saved": savedNote });
+                res.status(202).json({ "status": "success", "Note Saved": savedNote });
             } catch (error) {
-                console.log({ "Error": error });
+                // console.log({ "Error": error });
                 res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong", })
             }
         }
@@ -67,7 +67,7 @@ notes.put('/:id',
 
             // ? If Note Does Not Available
             if (!foundNoteById) {
-                return res.status(404).json({ "status": "404", "msg": "Not Found!!", });
+                return res.status(404).json({ "status": "error", "msg": "Not Found!!", });
             }
             else {
                 // ? If Note Avaiable But Does Not Belong To The Logged In User Then 
@@ -77,11 +77,11 @@ notes.put('/:id',
                 else {
                     // ? If Note Avaiable And Also Belongs To The Logged In User Then 
                     foundNoteById = await Note.findByIdAndUpdate(req.params.id, { $set: updatedNote }, { new: true });
-                    res.status(202).json({ "Note Updated": foundNoteById });
+                    res.status(202).json({ "status": "success", "Note Updated": foundNoteById });
                 }
             }
         } catch (error) {
-            console.log({ "Error": error });
+            // console.log({ "Error": error });
             res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong" })
         }
 
@@ -111,7 +111,7 @@ notes.delete('/:id',
                 }
             }
         } catch (error) {
-            console.log({ "Error": error });
+            // console.log({ "Error": error });
             res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong" })
         }
 
