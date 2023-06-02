@@ -1,5 +1,5 @@
 // ? Environment Variables
-const { USER_TOKEN, DATABASE_URL } = require('../config/config');
+const DATABASE_URL = require('../config/config');
 
 export const getAllData = async () => {
     // ? API Call
@@ -7,11 +7,14 @@ export const getAllData = async () => {
         method: "GET",
         headers: {
             'Content-Type': "application/json",
-            "auth-token" : USER_TOKEN
+            "authToken": sessionStorage.getItem('MindScribeAuthToken')
         }
     })
     const response = await request.json();
     // ? Giving All Notes to State
+    
+    console.log('----------------------------------------');
+    // ! problem in api not wrking
     return response;
 };
 
@@ -21,7 +24,7 @@ export const addData = async (inputData) => {
         method: "POST",
         headers: {
             'Content-Type': "application/json",
-            "auth-token": USER_TOKEN
+            "authToken": sessionStorage.getItem('MindScribeAuthToken')
         },
         body: JSON.stringify(inputData)
     })
@@ -33,7 +36,7 @@ export const editData = async (id, title, description, tags) => {
         method: "PUT",
         headers: {
             'Content-Type': "application/json",
-            "auth-token": USER_TOKEN
+            "authToken": sessionStorage.getItem('MindScribeAuthToken')
         },
         body: JSON.stringify({ title, description, tags })
     })
@@ -45,7 +48,7 @@ export const deleteData = async (id) => {
         method: "DELETE",
         headers: {
             'Content-Type': "application/json",
-            "auth-token": USER_TOKEN
+            "authToken": sessionStorage.getItem('MindScribeAuthToken')
         }
     })
 };

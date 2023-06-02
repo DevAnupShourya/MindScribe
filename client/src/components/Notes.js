@@ -15,7 +15,7 @@ export default function Notes(props) {
   const [inputNote, setNote] = useState({ id: "", updatedTitle: '', updatedDescription: '', updatedTags: '' });
 
   useEffect(() => {
-    if (localStorage.getItem('MindScribeAuthToken')) {
+    if (sessionStorage.getItem('MindScribeAuthToken')) {
       getAllNotes();
     }
     else {

@@ -10,16 +10,23 @@ MindScribe is a revolutionary note-taking platform that unlocks the power of you
 ### For testing Purpose
 ```json
 {
-  "name": "test",
-  "email": "test@test.com",
-  "password": "test123",
-  "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2NDcwNWE4ZGJkNWQ2ZGUwMjRiYmVmZDgifSwiaWF0IjoxNjg1MDg0ODEzfQ.291ejGI8hYnmXVeeRjlnDrAO61FwxLuVYodso9Xws1c"
+ "name": "User_Man_1",
+  "email": "user1@gmail.com",
+  "password": "User_Man_1",
+  "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2NDc4YTczYmYyMjU5YmMwZWFkZjA2MTQifSwiaWF0IjoxNjg1NjI4NzMxfQ.9bF2e0FI2cdnvaM4-OVdCvcEu-agNTP1l-7J2rvO4J0"
+  ,
+  {
+    "status": "success",
+    "Note Saved": {
+        "user": "6478a73bf2259bc0eadf0614",
+        "title": "User Title 1",
+        "description": "User Dscription 1",
+        "tags": "test",
+        "date": "2023-06-01T14:15:30.608Z",
+        "_id": "6478a837b54499577d4eddc3",
+        "__v": 0
+    }
 }
-{
-  "name": "admin",
-  "email": "admin@mindscribe.com",
-  "password": "adminofmindscribe",
-  "auth-token" :"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2NDc0OGQzNzNhOGZiYTdjOGIxOTZlYmQifSwiaWF0IjoxNjg1MzU5OTI3fQ.OUWvzmrOYZkRrPVCXLkO22XCw-WF8KRhxJnuK4V1jXw"
 }
 ```
 ### For TailwindCSS Compilation

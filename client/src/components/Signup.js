@@ -15,7 +15,8 @@ export default function Signup(props) {
             const signupData = await signup(userData);
             
             if (signupData.status === "success") {
-                localStorage.setItem(`MindScribeAuthToken`, signupData.authToken);
+                sessionStorage.clear();
+                sessionStorage.setItem(`MindScribeAuthToken`, signupData.authToken);
                 navigate('/dashboard');
                 props.showAlert('success', "Account Created Succesfully.")
             }

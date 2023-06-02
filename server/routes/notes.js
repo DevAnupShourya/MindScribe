@@ -12,8 +12,8 @@ notes.get('/',
     fetchUser,
     async (req, res) => {
         try {
-            const notes = await Note.find({ user: req.user.user });
-            res.status(201).json(notes);
+            const notes = await Note.find({user : req.user.user });
+            res.status(200).json(notes);
         } catch (error) {
             // console.log({ "Error": error });
             res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong", })

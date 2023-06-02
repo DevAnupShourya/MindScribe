@@ -53,14 +53,14 @@ export const NoteContextAPI = (props) => {
     const deleteNote = async (id) => {
         // ? API Call
         await deleteData(id);
-        
+
         // ? Updating in State
         const updatedNotes = NotesFull.filter((note) => { return note._id !== id }); // true return
         setnotes(updatedNotes);
     }
-    
+
     return (
-        <NoteContext.Provider value={{getAllNotes, NotesFull, addNote, editNote, deleteNote }}>
+        <NoteContext.Provider value={{ getAllNotes, NotesFull, addNote, editNote, deleteNote }}>
             {props.children}
         </NoteContext.Provider>
     )

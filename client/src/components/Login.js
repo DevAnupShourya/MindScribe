@@ -13,7 +13,7 @@ export default function Login(props) {
         const loginData = await login(credentials.email, credentials.password);
 
         if ((loginData.msg === "user Found")) {
-            localStorage.setItem(`MindScribeAuthToken`, loginData.authToken);
+            sessionStorage.setItem('MindScribeAuthToken', loginData.authToken);
             props.showAlert('success', "Logged In Succesfully!")
             navigate('/');
         }

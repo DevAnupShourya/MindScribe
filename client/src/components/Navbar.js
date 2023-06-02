@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Navbar() {
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem('MindScribeAuthToken');
+    sessionStorage.clear();
     navigate('/login');
   }
   return (
@@ -28,7 +28,7 @@ export default function Navbar() {
         <Link to={'/'} className="btn btn-ghost normal-case text-xl">MindScribe</Link>
       </div>
       <div className="navbar-end">
-        {localStorage.getItem('MindScribeAuthToken') ?
+        {sessionStorage.getItem('MindScribeAuthToken') ?
           <button onClick={handleLogout} className='bg-gradient-to-r from-purple-800 to-green-500 px-5 py-2 rounded-md hover:bg-gradient-to-l hover:from-pink-500 hover:to-green-500 transition-all  duration-1000 ease-in-out font-bold'>Logout</button>
           :
           <Link to={'/signup'} className='btn'>Sign Up</Link>

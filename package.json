@@ -1,5 +1,15 @@
 {
+  "name": "MindScribeBackend",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
   "dependencies": {
+    "concurrently": "^8.0.1",
     "daisyui": "^2.51.6"
-  }
+  },
+  "scripts": {
+    "app": "concurrently \"cd ./client/ && npm run start\" \"cd ./server/ && nodemon index.js\""
+  },
+  "author": "Anup Shourya",
+  "license": "ISC"
 }

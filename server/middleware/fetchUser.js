@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = process.env.JWT_SECRET || "mysecretkey";
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const fetchUser = (req, res, next) => {
     try {
         // ? Getting user from jwt token and adding id to req object
-        const token = req.header("auth-token");
+        const token = req.header("authToken");
         if (!token) {
             // ? If JWT Token in invalid
             res.status(401).json({ "status": "error", "msg": "Invalid Token", })
