@@ -11,11 +11,10 @@ export default function Login(props) {
     const handleOnSubmit = async (e) => {
         e.preventDefault();
         const loginData = await login(credentials.email, credentials.password);
-
-        if ((loginData.msg === "user Found")) {
-            sessionStorage.setItem('MindScribeAuthToken', loginData.authToken);
+        console.log(loginData);
+        if (loginData.status === "success") {
             props.showAlert('success', "Logged In Succesfully!")
-            navigate('/');
+            navigate('/dashboard');
         }
         else {
             props.showAlert('error', "Invalid Credentials!!");

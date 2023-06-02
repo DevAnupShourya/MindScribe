@@ -20,7 +20,14 @@ import NotFound from './pages/NotFound';
 // ? Note DB ContextAPI
 import {NoteContextAPI} from './context/NoteContextAPI';
 
+
+// ? cokies
+// import { useCookies } from 'react-cookie';
+
 export default function App() {
+  // const [cookies] = useCookies(['authToken']);
+  // const authToken = cookies.authToken;
+  
   // ? User ALert State
   const [alert, setAlert] = useState({ type: null, msg: null });
 

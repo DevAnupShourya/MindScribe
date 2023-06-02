@@ -12,11 +12,11 @@ notes.get('/',
     fetchUser,
     async (req, res) => {
         try {
-            const notes = await Note.find({user : req.user.user });
-            res.status(200).json(notes);
+            const notes = await Note.find({user : req.userID });
+            return res.status(200).json(notes);
         } catch (error) {
             // console.log({ "Error": error });
-            res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong", })
+            return res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong", })
         }
     }
 )
@@ -31,19 +31,19 @@ notes.post('/',
         // ? Throwing Error By Validator 
         const result = validationResult(req);
         if (!result.isEmpty()) {
-            res.status(400).send({ errors: result.array() });
+            return res.status(400).send({ errors: result.array() });
         }
         else {
             try {
                 const { title, description, tags } = req.body;
                 const note = new Note({
-                    title, description, tags, user: req.user.user
+                    title, description, tags, user: req.userID
                 })
                 const savedNote = await note.save();
-                res.status(202).json({ "status": "success", "Note Saved": savedNote });
+                return res.status(202).json({ "status": "success", "Note Saved": savedNote });
             } catch (error) {
                 // console.log({ "Error": error });
-                res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong", })
+                return res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong", })
             }
         }
     }
@@ -71,18 +71,18 @@ notes.put('/:id',
             }
             else {
                 // ? If Note Avaiable But Does Not Belong To The Logged In User Then 
-                if (foundNoteById.user.toString() !== req.user.user) {
+                if (foundNoteById.user.toString() !== req.userID) {
                     return res.status(401).json({ "status": "Access Denied", "msg": "You Are Not Authorized", });
                 }
                 else {
                     // ? If Note Avaiable And Also Belongs To The Logged In User Then 
                     foundNoteById = await Note.findByIdAndUpdate(req.params.id, { $set: updatedNote }, { new: true });
-                    res.status(202).json({ "status": "success", "Note Updated": foundNoteById });
+                    return res.status(202).json({ "status": "success", "Note Updated": foundNoteById });
                 }
             }
         } catch (error) {
             // console.log({ "Error": error });
-            res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong" })
+            return res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong" })
         }
 
     }
@@ -101,18 +101,18 @@ notes.delete('/:id',
             }
             else {
                 // ? If Note Avaiable Then Delete it
-                if (foundNoteById.user.toString() !== req.user.user) {
+                if (foundNoteById.user.toString() !== req.userID) {
                     return res.status(401).json({ "status": "Access Denied", "msg": "You Are Not Authorized", });
                 }
                 else {
                     // ? If Note Avaiable And Also Belongs To The Logged In User Then 
                     foundNoteById = await Note.findByIdAndDelete(req.params.id,);
-                    res.status(202).json({ "status": "Succes", "Your Note Has Been Deleted!!": foundNoteById });
+                    return res.status(202).json({ "status": "Succes", "Your Note Has Been Deleted!!": foundNoteById });
                 }
             }
         } catch (error) {
             // console.log({ "Error": error });
-            res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong" })
+            return res.status(500).json({ "status": "error", "msg": "Somthing Went Wrong" })
         }
 
     }

@@ -5,6 +5,7 @@ export const login = async (mail, pass) => {
     // ? API Call
     let request = await fetch(`${DATABASE_URL}/api/auth/login`, {
         method: "POST",
+        credentials: 'include',
         headers: {
             'Content-Type': "application/json"
         },
@@ -18,6 +19,7 @@ export const signup = async ({ name, email, password }) => {
     // ? API Call
     const request = await fetch(`${DATABASE_URL}/api/auth/signup/`, {
         method: "POST",
+        credentials: 'include',
         headers: {
             'Content-Type': "application/json"
         },

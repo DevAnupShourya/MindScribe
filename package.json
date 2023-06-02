@@ -1,7 +1,6 @@
 {
   "name": "MindScribeBackend",
   "version": "1.0.0",
-  "private": true,
   "main": "index.js",
   "dependencies": {
     "concurrently": "^8.0.1",

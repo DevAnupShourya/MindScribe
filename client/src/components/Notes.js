@@ -6,6 +6,10 @@ import { NoteContext } from '../context/NoteContextAPI';
 // ? Sinngle Card Component
 import NoteCard from './NoteCard';
 
+// ? to get Cookies
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+
 export default function Notes(props) {
   // ? Variables 
   let navigate = useNavigate();
@@ -15,7 +19,7 @@ export default function Notes(props) {
   const [inputNote, setNote] = useState({ id: "", updatedTitle: '', updatedDescription: '', updatedTags: '' });
 
   useEffect(() => {
-    if (sessionStorage.getItem('MindScribeAuthToken')) {
+    if (cookies.get('authToken')) {
       getAllNotes();
     }
     else {

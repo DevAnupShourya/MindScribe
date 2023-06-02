@@ -9,6 +9,8 @@ MindScribe is a revolutionary note-taking platform that unlocks the power of you
 
 ### For testing Purpose
 ```json
+ "email": "thanos@gmail.com",
+  "password": "thanos2gmail.com"
 {
  "name": "User_Man_1",
   "email": "user1@gmail.com",

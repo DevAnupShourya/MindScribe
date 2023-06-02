@@ -1,3 +1,6 @@
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+
 // ? Environment Variables
 const DATABASE_URL = require('../config/config');
 
@@ -7,7 +10,7 @@ export const getAllData = async () => {
         method: "GET",
         headers: {
             'Content-Type': "application/json",
-            "authToken": sessionStorage.getItem('MindScribeAuthToken')
+            "authToken": cookies.get('authToken')
         }
     })
     const response = await request.json();
@@ -24,7 +27,7 @@ export const addData = async (inputData) => {
         method: "POST",
         headers: {
             'Content-Type': "application/json",
-            "authToken": sessionStorage.getItem('MindScribeAuthToken')
+            "authToken": cookies.get('authToken')
         },
         body: JSON.stringify(inputData)
     })
@@ -36,7 +39,7 @@ export const editData = async (id, title, description, tags) => {
         method: "PUT",
         headers: {
             'Content-Type': "application/json",
-            "authToken": sessionStorage.getItem('MindScribeAuthToken')
+            "authToken": cookies.get('authToken')
         },
         body: JSON.stringify({ title, description, tags })
     })
@@ -48,7 +51,7 @@ export const deleteData = async (id) => {
         method: "DELETE",
         headers: {
             'Content-Type': "application/json",
-            "authToken": sessionStorage.getItem('MindScribeAuthToken')
+            "authToken": cookies.get('authToken')
         }
     })
 };

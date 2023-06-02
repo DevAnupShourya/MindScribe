@@ -1,22 +1,25 @@
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_SECRET;
+// ? User Model
+const User = require('../DB/models/User');
 
-const fetchUser = (req, res, next) => {
+const fetchUser = async (req, res, next) => {
     try {
         // ? Getting user from jwt token and adding id to req object
-        const token = req.header("authToken");
+        const token = req.cookies.authToken;
         if (!token) {
             // ? If JWT Token in invalid
-            res.status(401).json({ "status": "error", "msg": "Invalid Token", })
+            return res.status(401).json({ "status": "error", "msg": "Invalid Token", })
         }
         else {
             // ? If JWT Token is valid then sending it ID in req object
             const userData = jwt.verify(token, JWT_SECRET);
-            req.user = userData.user;
+            const userByEMail = await User.findOne({email : userData.user.email});
+            req.userID = userByEMail._id;
         }
         next();
     } catch (error) {
-        res.status(401).json({ "status": "error", "msg": "Invalid Token", })
+        return res.status(401).json({ "status": "error", "msg": "Invalid Token", })
     }
 }
 
