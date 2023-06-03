@@ -12,9 +12,10 @@ export default function Signup(props) {
         e.preventDefault();
         if (userData.password === userData.confirmPassword) {
             // ? API Call
-            const signupData = await signup(userData);
+            const signupResponse = await signup(userData);
             
-            if (signupData.status === "success") {
+            if (signupResponse.success === true) {
+                localStorage.setItem('MindScribeAuthToken' , signupResponse.data.token);
                 navigate('/dashboard');
                 props.showAlert('success', "Account Created Succesfully.")
             }

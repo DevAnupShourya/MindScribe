@@ -11,8 +11,8 @@ export default function Login(props) {
     const handleOnSubmit = async (e) => {
         e.preventDefault();
         const loginData = await login(credentials.email, credentials.password);
-        console.log(loginData);
-        if (loginData.status === "success") {
+        if (loginData.success === true) {
+            localStorage.setItem('MindScribeAuthToken', loginData.data.token);
             props.showAlert('success', "Logged In Succesfully!")
             navigate('/dashboard');
         }

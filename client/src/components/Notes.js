@@ -6,20 +6,16 @@ import { NoteContext } from '../context/NoteContextAPI';
 // ? Sinngle Card Component
 import NoteCard from './NoteCard';
 
-// ? to get Cookies
-import Cookies from 'universal-cookie';
-const cookies = new Cookies();
-
 export default function Notes(props) {
   // ? Variables 
   let navigate = useNavigate();
   // ? Context Functions
   const { NotesFull, getAllNotes, editNote } = useContext(NoteContext);
-  // ? 
+
   const [inputNote, setNote] = useState({ id: "", updatedTitle: '', updatedDescription: '', updatedTags: '' });
 
   useEffect(() => {
-    if (cookies.get('authToken')) {
+    if (localStorage.getItem('MindScribeAuthToken')) {
       getAllNotes();
     }
     else {
@@ -50,7 +46,6 @@ export default function Notes(props) {
   const handleInputChange = (e) => {
     setNote({ ...inputNote, [e.target.name]: e.target.value });
   }
-
   return (
     <section className='px-20 py-10'>
       {/* Modal Open */}
@@ -96,10 +91,16 @@ export default function Notes(props) {
       {/* Modal Close */}
       <h1 className='text-2xl'>All Notes</h1>
       <div className="w-full my-10 flex flex-row flex-wrap justify-evenly">
-        {NotesFull.length === 0 && "No Notes to Display"}
-        {NotesFull.map((note) => {
-          return <NoteCard showAlert={props.showAlert} key={`${note._id}:${note.title}`} notedata={note} updateNote={updateNote} />
-        })}
+        {
+          NotesFull.length === 0 ? (
+            <h1>No Notes to Display</h1>
+            ) : (
+              NotesFull.map((note) => {
+                return <NoteCard showAlert={props.showAlert} key={`${note._id}:${note.title}`} notedata={note} updateNote={updateNote} />;
+              })
+          
+          )
+        }
       </div>
     </section>
 

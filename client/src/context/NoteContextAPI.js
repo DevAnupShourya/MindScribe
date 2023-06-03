@@ -13,7 +13,7 @@ export const NoteContextAPI = (props) => {
     const getAllNotes = async () => {
         const notesData = await getAllData();
         // ? Updating in State
-        setnotes(notesData);
+        setnotes(notesData.data);
     }
 
     // * Adding A Note

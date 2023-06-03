@@ -3,39 +3,31 @@
 ```bash
 git push -u origin master
 ```
+
 # MindScribe
 
 MindScribe is a revolutionary note-taking platform that unlocks the power of your thoughts. Seamlessly capture your ideas, insights, and inspirations in a beautifully designed digital space. With its intelligent organization features, MindScribe helps you make connections between your notes and discover new perspectives. Experience the freedom to create, explore, and grow with MindScribe.
 
 ### For testing Purpose
+
 ```json
- "email": "thanos@gmail.com",
-  "password": "thanos2gmail.com"
 {
- "name": "User_Man_1",
-  "email": "user1@gmail.com",
-  "password": "User_Man_1",
-  "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiI2NDc4YTczYmYyMjU5YmMwZWFkZjA2MTQifSwiaWF0IjoxNjg1NjI4NzMxfQ.9bF2e0FI2cdnvaM4-OVdCvcEu-agNTP1l-7J2rvO4J0"
-  ,
-  {
-    "status": "success",
-    "Note Saved": {
-        "user": "6478a73bf2259bc0eadf0614",
-        "title": "User Title 1",
-        "description": "User Dscription 1",
-        "tags": "test",
-        "date": "2023-06-01T14:15:30.608Z",
-        "_id": "6478a837b54499577d4eddc3",
-        "__v": 0
-    }
+  "name": "Piyush Rajak",
+  "email": "rajak@piyush.com",
+  "password": "rajak@piyush.com"
 }
+{
+  "name": "Md. Ismail Alam",
+  "email": "alam@ismail.com",
+  "password": "alam@ismail.com"
 }
 ```
+
 ### For TailwindCSS Compilation
+
 ```css
 npx tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/App.css --watch
 ```
-
 
 ## Folder Structure Should Be :
 
