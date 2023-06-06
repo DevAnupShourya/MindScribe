@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { NoteContext } from '../context/NoteContextAPI';
 // ? Sinngle Card Component
 import NoteCard from './NoteCard';
+// ? Custom Style
+import '../styles/cardGrid.css';;
 
 export default function Notes(props) {
   // ? Variables 
@@ -43,11 +45,26 @@ export default function Notes(props) {
     props.showAlert('success', "Note Updated!");
   }
 
+
   const handleInputChange = (e) => {
     setNote({ ...inputNote, [e.target.name]: e.target.value });
   }
   return (
+    
     <section className='px-20 py-10'>
+      <div className="divider my-10"><h2 className="lg:text-4xl"> All Notes <span className="badge badge-lg"> ALL </span> </h2></div>
+      <div id="cardGrid" className='w-full gap-4'>
+        {
+          NotesFull.length === 0 ? (
+            <h1>No Notes to Display</h1>
+          ) : (
+            NotesFull.map((note) => {
+              return <NoteCard showAlert={props.showAlert} key={`${note._id}:${note.title}`} notedata={note} updateNote={updateNote} />;
+            })
+
+          )
+        }
+      </div>
       {/* Modal Open */}
       <label ref={refOpen} htmlFor="my-modal-3" className="btn hidden">Open Modal</label>
       <input type="checkbox" id="my-modal-3" className="modal-toggle hidden" />
@@ -89,19 +106,6 @@ export default function Notes(props) {
         </div>
       </div>
       {/* Modal Close */}
-      <h1 className='text-2xl'>All Notes</h1>
-      <div className="w-full my-10 flex flex-row flex-wrap justify-evenly">
-        {
-          NotesFull.length === 0 ? (
-            <h1>No Notes to Display</h1>
-            ) : (
-              NotesFull.map((note) => {
-                return <NoteCard showAlert={props.showAlert} key={`${note._id}:${note.title}`} notedata={note} updateNote={updateNote} />;
-              })
-          
-          )
-        }
-      </div>
     </section>
 
   )

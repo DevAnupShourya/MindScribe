@@ -1,0 +1,59 @@
+#cardGrid {
+  display: grid;
+  /* grid-template-columns: repeat(3, 400px);
+  grid-template-rows: repeat(3, 500px); */
+  grid-template-columns: repeat(3, 400px);
+  grid-template-rows: repeat(3, 400px);
+  justify-content: center;
+}
+
+/* Mobile styles */
+@media (max-width: 639px) {
+  #cardGrid {
+    grid-template-rows: repeat(auto, auto);
+    grid-template-columns: repeat(1, auto);
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 640px) and (max-width: 1023px) {
+  #cardGrid {
+    grid-template-rows: repeat(auto, auto);
+    grid-template-columns: repeat(2, 400px);
+  }
+}
+
+/* Small desktop styles */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #cardGrid {
+    grid-template-rows: repeat(auto, auto);
+    grid-template-columns: repeat(2, 420px);
+  }
+}
+
+/* Medium desktop styles */
+@media (min-width: 1280px) and (max-width: 1535px) {
+    #cardGrid {
+        grid-template-rows: repeat(auto, auto);
+        grid-template-columns: repeat(2, 500px);
+      }
+}
+
+/* Large desktop styles */
+@media (min-width: 1536px) {
+    #cardGrid {
+        grid-template-rows: repeat(auto, auto);
+        grid-template-columns: repeat(3, 450px);
+      }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#desc::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#desc {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: 0px;  /* Firefox */
+}

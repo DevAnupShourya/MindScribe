@@ -12,8 +12,9 @@
   flex-direction: column;
   gap: 35px;
   border-radius: 15px;
-  background: rgba(24, 20, 20, 0.987);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  background: rgba(2, 0, 114, 0.987);
+  /* background: rgba(24, 20, 20, 0.987);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); */
   border-radius: 8px;
 }
 

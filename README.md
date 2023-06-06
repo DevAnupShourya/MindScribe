@@ -24,8 +24,14 @@ MindScribe is a revolutionary note-taking platform that unlocks the power of you
 ```
 
 ### For TailwindCSS Compilation
+default
+neutral
+primary
+secondary
+accent
+ghost
 
-```css
+```bash
 npx tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/App.css --watch
 ```
 

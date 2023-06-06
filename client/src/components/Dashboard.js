@@ -6,9 +6,9 @@ import Notes from './Notes';
 
 export default function Dashboard(props) {
   return (
-    <>
-        <NoteForm showAlert={props.showAlert} />
-        <Notes showAlert={props.showAlert} />
-    </>
+    <div className='py-20 text-neutral text-center'>
+      <NoteForm showAlert={props.showAlert} />
+      <Notes showAlert={props.showAlert} />
+    </div>
   )
 }
