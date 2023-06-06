@@ -17,8 +17,6 @@ import Dashboard from './components/Dashboard';
 import Alert from './pages/Alert';
 import NotFound from './pages/NotFound';
 
-import TestComp from './components/TestComp';
-
 // ? Note DB ContextAPI
 import { NoteContextAPI } from './context/NoteContextAPI';
 
@@ -48,7 +46,6 @@ export default function App() {
             <Route exact path="/contact" element={<Contact showAlert={showAlert} />} />
             <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
             <Route exact path="/login" element={<Login showAlert={showAlert} />} />
-            <Route exact path="/test" Component={TestComp} />
             <Route exact path="/dashboard" element={<Dashboard showAlert={showAlert} />} />
             <Route path="*" element={<NotFound />} />
           </Routes >
