@@ -1,9 +1,3 @@
-[] Github Push Today :
-
-```bash
-git push -u origin master
-```
-
 # MindScribe
 
 MindScribe is a revolutionary note-taking platform that unlocks the power of your thoughts. Seamlessly capture your ideas, insights, and inspirations in a beautifully designed digital space. With its intelligent organization features, MindScribe helps you make connections between your notes and discover new perspectives. Experience the freedom to create, explore, and grow with MindScribe.
@@ -24,50 +18,8 @@ MindScribe is a revolutionary note-taking platform that unlocks the power of you
 ```
 
 ### For TailwindCSS Compilation
-default
-neutral
-primary
-secondary
-accent
-ghost
-
 ```bash
 npx tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/App.css --watch
-```
-
-## Folder Structure Should Be :
-
-```bash
-MindScribe/
-  ├── client/                  # Front-end code
-  │   ├── public/              # Public assets (index.html, favicon, etc.)
-  │   ├── src/                 # Source code
-  │   │   ├── components/      # Reusable React components
-  │   │   ├── pages/           # Application pages
-  │   │   ├── styles/          # CSS or SCSS stylesheets
-  │   │   ├── utils/           # Utility functions or helpers
-  │   │   ├── App.js           # Main application component
-  │   │   └── index.js         # Entry point for the front-end
-  │   ├── .env                 # Environment-specific configuration (optional)
-  │   └── package.json         # Front-end dependencies and scripts
-  │
-  ├── server/                  # Back-end code
-  │   ├── controllers/         # Request handlers or controllers
-  │   ├── models/              # Database models or schemas
-  │   ├── routes/              # API routes
-  │   ├── services/            # Business logic or services
-  │   ├── config/              # Configuration files
-  │   ├── middleware/          # Express middleware
-  │   ├── utils/               # Utility functions or helpers
-  │   ├── index.js             # Entry point for the back-end
-  │   └── package.json         # Back-end dependencies and scripts
-  │
-  ├── public/                  # Backend-related public assets (optional)
-  ├── design/                  # Web Design assets (optional)
-  ├── .env                     # Environment-specific configuration (optional)
-  ├── README.md                # Project documentation
-  ├── package.json             # Project-level dependencies and scripts
-  └── .gitignore               # Git ignore rules
 ```
 
 ## Feature To Implement
