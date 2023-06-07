@@ -9,7 +9,7 @@ server.use(cors({
   }))
 
 // ? Database 
-require('./DB/database');
+require('./db/database');
 
 // ? Importing Cookies
 const cookieParser = require('cookie-parser');
