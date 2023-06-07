@@ -52,6 +52,7 @@ export default function NoteForm(props) {
       </form>
     </div>
   )
+}
   // return (
   //   <div className="w-full grid place-items-center my-10 -z-10">
   //     <div className="card bg-primary lg:w-3/5 md:w-2/3 sm:w-3/4 ">
@@ -73,4 +74,3 @@ export default function NoteForm(props) {
   //     </div>
   //   </div>
   // )
-}
