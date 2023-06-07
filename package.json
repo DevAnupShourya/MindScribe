@@ -7,7 +7,7 @@
     "daisyui": "^2.51.6"
   },
   "scripts": {
-    "app": "concurrently \"cd ./client/ && npm run start\" \"cd ./server/ && node index.js\""
+    "app": "concurrently \"cd ./client/ && npm run build\" \"cd ./server/ && npm i && node index.js\""
   },
   "author": "Anup Shourya",
   "license": "ISC"
