@@ -39,8 +39,6 @@ server.use((req, res, next) => {
 const dotenv = require("dotenv");
 dotenv.config();
 const serverAddress = `127.0.0.1:${process.env.PORT}`;
-console.log(`*************************** serverAddress -> ${serverAddress}`);
-console.log(`*************************** process.env.PORT -> ${process.env.PORT}`);
 
 // ? Port Listening
 server.listen(process.env.PORT, () => {
