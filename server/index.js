@@ -2,6 +2,10 @@ const express = require('express');
 const server = express();
 server.use(express.json());
 
+// ? Loading .env file contents into process.env
+const dotenv = require("dotenv");
+dotenv.config();
+
 const cors = require('cors');
 server.use(cors({
     origin: 'http://localhost:3000',
@@ -35,10 +39,8 @@ server.use((req, res, next) => {
     next();
 });
 
-// ? Loading .env file contents into process.env
-const dotenv = require("dotenv");
-dotenv.config();
-const serverAddress = `127.0.0.1:${process.env.PORT}`;
+
+const serverAddress = `${process.env.DB_HOST}:${process.env.PORT}`;
 
 // ? Port Listening
 server.listen(process.env.PORT, () => {
