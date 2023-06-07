@@ -8,7 +8,7 @@ const apiResponse = require('../utility/apiResponse');
 // * Custom Packages
 const fetchUser = require('../middleware/fetchUser');
 // ? Notes Model
-const Note = require('../DB/models/Note');
+const Note = require('../db/models/Note');
 
 // ? ROUTE 1 -> Getting All Notes
 notes.get('/',

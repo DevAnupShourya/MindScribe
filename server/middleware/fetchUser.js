@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_SECRET;
 // ? User Model
-const User = require('../DB/models/User');
+const User = require('../db/models/User');
 
 // ? Utility Function
 const apiResponse = require('../utility/apiResponse');

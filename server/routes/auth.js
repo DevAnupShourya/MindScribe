@@ -10,7 +10,7 @@ const apiResponse = require('../utility/apiResponse');
 // * Custom Packages
 const fetchUser = require('../middleware/fetchUser');
 // ? User Model
-const User = require('../DB/models/User');
+const User = require('../db/models/User');
 
 // ? Importing JWT TOken From config
 const JWT_SECRET = process.env.JWT_SECRET;
